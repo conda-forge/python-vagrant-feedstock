@@ -1,38 +1,38 @@
 {% set name = "python-vagrant" %}
-{% set version = "0.5.15" %}
+{% set version = "1.0.0" %}
 
- package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
 
- source:
+source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: af9a8a9802d382d45dbea96aa3cfbe77c6e6ad65b3fe7b7c799d41ab988179c6
+  sha256: a8fe93ccf2ff37ecc95ec2f49ea74a91a6ce73a4db4a16a98dd26d397cfd09e5
 
- build:
+build:
   number: 0
   noarch: python
-  script: "{{ PYTHON }} -m pip install . -vv "
+  script: '{{ PYTHON }} -m pip install . -vv '
 
- requirements:
+requirements:
   host:
     - pip
     - python
   run:
     - python
 
- test:
+test:
   imports:
     - vagrant
 
- about:
+about:
   home: https://github.com/todddeluca/python-vagrant
   license: MIT
   license_family: MIT
   license_file: LICENSE
   summary: Python bindings for interacting with Vagrant virtual machines.
 
- extra:
+extra:
   recipe-maintainers:
     - pg-hbk
     - sy-hbk
